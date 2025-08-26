@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mixed Signal - Where Analog Meets Digital</title>
+    
+    <!-- Reuse existing styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="header-top">
+                <div class="date-weather">
+                    <span id="current-date"></span>
+                </div>
+                <h1 class="site-logo">
+                    <img src="assets/icons/ms-logo.png" alt="Mixed Signal" class="logo-png">
+                </h1>
+                <div class="header-actions">
+                    <button class="subscribe-btn">Subscribe</button>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <div class="nav-item">
+                    <a href="#" class="tag-filter" data-tag="all">All Articles</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="tag-filter" data-tag="analog">Analog</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="tag-filter" data-tag="digital">Digital</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="tag-filter" data-tag="mixed-signal">Mixed Signal</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="tag-filter" data-tag="power">Power</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="tag-filter" data-tag="rf">RF</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="tag-filter" data-tag="embedded">Embedded</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="tag-filter" data-tag="tutorials">Tutorials</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="tag-filter" data-tag="opinion">Opinion</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero-section">
+        <div class="hero-container">
+            <article class="featured-article">
+                <span class="article-category">Featured</span>
+                <h2 class="hero-title">
+                    <a href="digital/mixed-signal-design-techniques.html">Advanced Techniques in Mixed-Signal Circuit Design</a>
+                </h2>
+                <p class="hero-excerpt">Exploring the intricate balance between precision analog circuits and high-speed digital systems in modern semiconductor design.</p>
+                <div class="article-meta">
+                    <span class="author"><a href="authors/sarah-chen.html">Dr. Sarah Chen</a></span>
+                    <span class="date">Jan. 26, 2025</span>
+                </div>
+                <div class="hero-image-placeholder">
+                    <span>Circuit Visualization</span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Articles List Section - NYT Style -->
+    <section class="articles-list-section">
+        <div class="section-container">
+            <div class="articles-list">
+                <!-- Main Articles Column -->
+                <div class="main-articles">
+                    <article class="list-article major" data-tags="mixed-signal analog digital">
+                        <div class="article-content-wrapper">
+                            <span class="article-tag">Mixed Signal</span>
+                            <h2><a href="digital/mixed-signal-design-techniques.html">Advanced Mixed-Signal Circuit Design Techniques</a></h2>
+                            <p class="article-summary">Exploring the intricate balance between precision analog circuits and high-speed digital systems in modern semiconductor design, including power management and signal integrity challenges.</p>
+                            <div class="article-meta">
+                                <span class="author">By <a href="authors/sarah-chen.html">Dr. Sarah Chen</a></span>
+                                <span class="date">Jan. 26, 2025</span>
+                            </div>
+                        </div>
+                        <div class="article-image">
+                            <div class="image-placeholder">
+                                <span>Mixed-Signal Design</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="list-article" data-tags="tutorials analog">
+                        <div class="article-content-wrapper">
+                            <span class="article-tag">Tutorials</span>
+                            <h3><a href="analog/example-analog-article.html">Template-Based Article Creation System</a></h3>
+                            <p class="article-summary">A comprehensive guide to creating new articles using our streamlined template system for consistent formatting and functionality.</p>
+                            <div class="article-meta">
+                                <span class="author"><a href="authors/editorial-team.html">Editorial Team</a></span>
+                                <span class="date">Feb. 1, 2025</span>
+                            </div>
+                        </div>
+                        <div class="article-image">
+                            <div class="image-placeholder">
+                                <span>Tutorial Guide</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="list-article" data-tags="power analog">
+                        <div class="article-content-wrapper">
+                            <span class="article-tag">Power</span>
+                            <h3><a href="#">Next-Generation GaN Power Converters Achieve 99.2% Efficiency</a></h3>
+                            <p class="article-summary">Revolutionary gallium nitride technology breakthrough in DC-DC conversion promises to transform power management in portable electronics and automotive applications.</p>
+                            <div class="article-meta">
+                                <span class="author"><a href="authors/michael-zhang.html">Dr. Michael Zhang</a></span>
+                                <span class="date">Jan. 24, 2025</span>
+                            </div>
+                        </div>
+                        <div class="article-image">
+                            <div class="image-placeholder">
+                                <span>Power Electronics</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="list-article" data-tags="rf digital">
+                        <div class="article-content-wrapper">
+                            <span class="article-tag">RF</span>
+                            <h3><a href="#">5G mmWave Transceivers: Overcoming Design Challenges</a></h3>
+                            <p class="article-summary">Path loss and phase noise mitigation strategies in millimeter-wave communication systems for next-generation wireless infrastructure.</p>
+                            <div class="article-meta">
+                                <span class="author"><a href="authors/lisa-wang.html">Prof. Lisa Wang</a></span>
+                                <span class="date">Jan. 22, 2025</span>
+                            </div>
+                        </div>
+                        <div class="article-image">
+                            <div class="image-placeholder">
+                                <span>5G RF Design</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="list-article" data-tags="digital embedded">
+                        <div class="article-content-wrapper">
+                            <span class="article-tag">Digital</span>
+                            <h3><a href="#">FPGA-Based Signal Processing: Minimizing Latency in High-Throughput Systems</a></h3>
+                            <p class="article-summary">Implementation strategies for DSP algorithms on field-programmable gate arrays, focusing on parallel processing and pipeline optimization techniques.</p>
+                            <div class="article-meta">
+                                <span class="author"><a href="authors/james-chen.html">Dr. James Chen</a></span>
+                                <span class="date">Jan. 20, 2025</span>
+                            </div>
+                        </div>
+                        <div class="article-image">
+                            <div class="image-placeholder">
+                                <span>FPGA Design</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="list-article" data-tags="analog embedded">
+                        <div class="article-content-wrapper">
+                            <span class="article-tag">Analog</span>
+                            <h3><a href="#">Ultra-Low Noise Amplifiers for Biomedical Sensor Applications</a></h3>
+                            <p class="article-summary">Achieving nanovolt-level noise floors in portable medical devices through innovative circuit topologies and careful component selection.</p>
+                            <div class="article-meta">
+                                <span class="author"><a href="authors/elena-rodriguez.html">Dr. Elena Rodriguez</a></span>
+                                <span class="date">Jan. 18, 2025</span>
+                            </div>
+                        </div>
+                        <div class="article-image">
+                            <div class="image-placeholder">
+                                <span>Biomedical Circuits</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Sidebar Articles -->
+                <div class="sidebar-articles">
+                    <div class="sidebar-section">
+                        <h4>Tutorials</h4>
+                        <article class="sidebar-article" data-tags="tutorials analog">
+                            <h5><a href="#">How to Design a Low-Noise Op-Amp</a></h5>
+                            <div class="article-meta">
+                                <span class="date">Step-by-step guide</span>
+                            </div>
+                        </article>
+                        
+                        <article class="sidebar-article" data-tags="tutorials digital">
+                            <h5><a href="#">SPICE Simulation for Beginners</a></h5>
+                            <div class="article-meta">
+                                <span class="date">Basic tutorial</span>
+                            </div>
+                        </article>
+                        
+                        <article class="sidebar-article" data-tags="tutorials embedded">
+                            <h5><a href="#">PCB Layout Best Practices</a></h5>
+                            <div class="article-meta">
+                                <span class="date">Design guide</span>
+                            </div>
+                        </article>
+                        
+                        <article class="sidebar-article" data-tags="tutorials mixed-signal">
+                            <h5><a href="#">Understanding ADC Specifications</a></h5>
+                            <div class="article-meta">
+                                <span class="date">Fundamentals</span>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h4>Opinion</h4>
+                        <article class="sidebar-article opinion" data-tags="opinion">
+                            <h5><a href="#">The Case for Open-Source Silicon</a></h5>
+                            <p class="opinion-excerpt">Why the semiconductor industry needs to embrace open hardware principles...</p>
+                            <div class="article-meta">
+                                <span class="author">Editorial Board</span>
+                            </div>
+                        </article>
+                        
+                        <article class="sidebar-article opinion" data-tags="opinion">
+                            <h5><a href="#">Moore's Law is Dead, Long Live System Integration</a></h5>
+                            <p class="opinion-excerpt">The future belongs to clever packaging and heterogeneous integration...</p>
+                            <div class="article-meta">
+                                <span class="author">Dr. Robert Kim</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/icons/ms-logo.png" alt="Mixed Signal" class="footer-logo-png">
+            </div>
+            <div class="footer-button">
+                <button class="writer-btn" id="writer-btn">Become a writer at Mixed Signal</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Subscribe Modal -->
+    <div id="subscribe-modal" class="subscribe-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Subscribe to Mixed Signal Newsletter</h3>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="subscribe-form" class="subscribe-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="subscriber-name">Name</label>
+                            <input type="text" id="subscriber-name" name="name" maxlength="50" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subscriber-email">Email</label>
+                            <input type="email" id="subscriber-email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-cancel" id="btn-cancel">Cancel</button>
+                        <button type="submit" class="btn-submit">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Writer Modal -->
+    <div id="writer-modal" class="writer-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Become a Writer at Mixed Signal</h3>
+                <button class="modal-close" id="writer-modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Interested in contributing technical articles to Mixed Signal?</p>
+                <p>Email us at: <strong>mixedsignal@amitabh.ch</strong></p>
+                <p>Include your background, areas of expertise, and writing samples.</p>
+                <div class="form-actions">
+                    <button type="button" class="btn-submit" id="writer-close-btn">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="assets/javascript/home.js"></script>
+</body>
+</html>
