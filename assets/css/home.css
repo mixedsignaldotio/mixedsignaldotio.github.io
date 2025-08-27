@@ -1020,6 +1020,10 @@ body {
     .footer-content {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .main-articles .list-article {
+        border-bottom: none !important;  /* Remove all article borders */
+    }
 }
 
 @media (max-width: 768px) {
