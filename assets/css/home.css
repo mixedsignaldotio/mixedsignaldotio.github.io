@@ -11,14 +11,15 @@
 .header-container {
     max-width: 100%;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0;
 }
 
 .header-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    margin: 0 auto;
+    padding: 1rem;
     border-bottom: 1px solid #e2e2e2;
 }
 
