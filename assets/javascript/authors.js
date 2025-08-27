@@ -2,97 +2,17 @@
 
 // Author-Article mapping
 const authorArticles = {
-    'sarah-chen': [
+    'amitabh-yadav': [
         {
-            title: 'Advanced Techniques in Mixed-Signal Circuit Design',
-            url: '../digital/mixed-signal-design-techniques.html',
-            category: 'Mixed Signal',
-            excerpt: 'Exploring the intricate balance between precision analog circuits and high-speed digital systems in modern semiconductor design, including power management and signal integrity challenges.',
-            date: 'Jan. 26, 2025',
-            readTime: '12 min read'
-        },
-        {
-            title: 'Clock Domain Crossing in Mixed-Signal Systems',
-            url: '#',
-            category: 'Mixed Signal',
-            excerpt: 'Best practices for managing multiple clock domains in mixed-signal designs, focusing on metastability prevention and synchronization techniques.',
-            date: 'Jan. 15, 2025',
-            readTime: '10 min read'
-        },
-        {
-            title: 'Noise Coupling Mitigation in SoC Design',
-            url: '#',
-            category: 'Mixed Signal',
-            excerpt: 'Strategies for reducing substrate and power supply noise coupling between analog and digital blocks in system-on-chip implementations.',
-            date: 'Jan. 5, 2025',
-            readTime: '14 min read'
-        }
-    ],
-    'michael-zhang': [
-        {
-            title: 'Next-Generation GaN Power Converters Achieve 99.2% Efficiency',
-            url: '#',
-            category: 'Power',
-            excerpt: 'Revolutionary gallium nitride technology breakthrough in DC-DC conversion promises to transform power management in portable electronics and automotive applications.',
-            date: 'Jan. 24, 2025',
-            readTime: '8 min read'
-        },
-        {
-            title: 'Thermal Management in High-Power Density Converters',
-            url: '#',
-            category: 'Power',
-            excerpt: 'Innovative cooling strategies for next-generation power converters operating at extreme power densities above 100W/cm³.',
-            date: 'Jan. 10, 2025',
-            readTime: '11 min read'
-        }
-    ],
-    'lisa-wang': [
-        {
-            title: '5G mmWave Transceivers: Overcoming Design Challenges',
-            url: '#',
-            category: 'RF',
-            excerpt: 'Path loss and phase noise mitigation strategies in millimeter-wave communication systems for next-generation wireless infrastructure.',
-            date: 'Jan. 22, 2025',
-            readTime: '10 min read'
-        }
-    ],
-    'james-chen': [
-        {
-            title: 'FPGA-Based Signal Processing: Minimizing Latency in High-Throughput Systems',
-            url: '#',
-            category: 'Digital',
-            excerpt: 'Implementation strategies for DSP algorithms on field-programmable gate arrays, focusing on parallel processing and pipeline optimization techniques.',
-            date: 'Jan. 20, 2025',
-            readTime: '15 min read'
-        }
-    ],
-    'elena-rodriguez': [
-        {
-            title: 'Ultra-Low Noise Amplifiers for Biomedical Sensor Applications',
-            url: '#',
+            title: 'Energy Bands in Solids',
+            url: '../analog/001-energy-bands-in-solids.html',
             category: 'Analog',
-            excerpt: 'Achieving nanovolt-level noise floors in portable medical devices through innovative circuit topologies and careful component selection.',
-            date: 'Jan. 18, 2025',
-            readTime: '9 min read'
+            excerpt: 'Foundations of energy band theory in solids and semiconductors',
+            date: 'Aug. 27, 2025',
+            readTime: '10 min read'
         }
     ],
     'editorial-team': [
-        {
-            title: 'Template-Based Article Creation System',
-            url: '../analog/example-analog-article.html',
-            category: 'Tutorials',
-            excerpt: 'A comprehensive guide to creating new articles using our streamlined template system for consistent formatting and functionality.',
-            date: 'Feb. 1, 2025',
-            readTime: '6 min read'
-        },
-        {
-            title: 'How to Design a Low-Noise Op-Amp',
-            url: '#',
-            category: 'Tutorials',
-            excerpt: 'Step-by-step guide to designing ultra-low noise operational amplifiers for precision measurement applications.',
-            date: 'Jan. 15, 2025',
-            readTime: '8 min read'
-        },
         {
             title: 'SPICE Simulation for Beginners',
             url: '#',
@@ -102,11 +22,11 @@ const authorArticles = {
             readTime: '12 min read'
         },
         {
-            title: 'PCB Layout Best Practices',
+            title: 'Understanding ADC Specifications',
             url: '#',
             category: 'Tutorials',
-            excerpt: 'Design guide for printed circuit board layout with focus on signal integrity and electromagnetic compatibility.',
-            date: 'Jan. 5, 2025',
+            excerpt: 'The key specifications are resolution and bandwidth — how accurately and quickly can the ADC resolve an analog input signal? An ideal ADC would have infinite resolution and bandwidth, but obviously, that isn’t possible.',
+            date: 'Aug. 30, 2025',
             readTime: '14 min read'
         }
     ]
@@ -114,73 +34,19 @@ const authorArticles = {
 
 // Author information database
 const authorInfo = {
-    'sarah-chen': {
-        name: 'Dr. Sarah Chen',
-        position: 'Mixed-Signal Design Specialist',
-        bio: `Dr. Sarah Chen is a leading expert in mixed-signal circuit design with over 15 years of experience in the semiconductor industry. She specializes in the intricate balance between precision analog circuits and high-speed digital systems, focusing on power management and signal integrity challenges in modern electronic systems.
-
-She holds a Ph.D. in Electrical Engineering from Stanford University and has published over 40 research papers in top-tier journals. Her work has been instrumental in advancing mixed-signal design techniques for automotive, industrial, and consumer electronics applications.`,
+    'amitabh-yadav': {
+        name: 'Mr. Amitabh Yadav',
+        position: 'Digital/Mixed-Signal Design Specialist',
+        bio: `Mr. Amitabh Yadav received his B.Tech. degree in electronics engineering from the University of Petroleum and Energy Studies, Dehradun, India, in 2017, and the M.Sc. degree in computer engineering from Delft University of Technology, Delft, The Netherlands, in 2019. He was an Experimental Physicist in the area of quantum computing at the Lawrence Berkeley National Laboratory, Berkeley, CA, USA, and UC Berkeley, and later joined as a Fellow at European Organization for Nuclear Research (CERN), Geneva, Switzerland. Since 2024, he is a Doctoral Student at the Integrated Neurotechnologies Laboratory, Ecole Polytechnique Federale de Lausanne (EPFL), Geneva, where his research focuses on ultralow power digital and mixed-signal integrated circuit design and in-vivo testing for closed-loop brain-machine interfaces.`,
         social: {
-            linkedin: 'https://linkedin.com/in/sarahchen-ee',
-            scholar: 'https://scholar.google.com/citations?user=sarahchen',
-            website: 'https://sarahchen.ee'
+            linkedin: 'https://linkedin.com/in/amitabhx',
+            scholar: 'https://scholar.google.com/citations?user=bj_Q2o0AAAAJ&hl=en',
+            website: 'https://amitabh.ch'
         },
-        initials: 'SC'
-    },
-    'michael-zhang': {
-        name: 'Dr. Michael Zhang',
-        position: 'Power Electronics Engineer',
-        bio: `Dr. Michael Zhang is a leading researcher in gallium nitride (GaN) power converters and high-efficiency DC-DC conversion systems. With over 12 years of experience in power electronics, he has been instrumental in developing next-generation power management solutions for automotive and industrial applications.
-
-He earned his Ph.D. from MIT and has worked with major semiconductor companies to bring cutting-edge power conversion technology from research to production. His expertise includes wide-bandgap semiconductors, power system optimization, and thermal management.`,
-        social: {
-            linkedin: 'https://linkedin.com/in/michael-zhang-power',
-            scholar: 'https://scholar.google.com/citations?user=mzhang',
-            twitter: 'https://twitter.com/mzhang_power'
-        },
-        initials: 'MZ'
-    },
-    'lisa-wang': {
-        name: 'Prof. Lisa Wang',
-        position: 'RF & Wireless Communication',
-        bio: `Professor Lisa Wang is a renowned expert in RF and wireless communication systems, specializing in 5G mmWave transceivers and next-generation wireless infrastructure. She is currently a Professor of Electrical Engineering at UC Berkeley and has over 20 years of experience in wireless system design.
-
-Her research focuses on advanced antenna systems, beamforming techniques, and signal processing for high-frequency wireless communications. She has published over 100 papers and holds 15 patents in wireless technology.`,
-        social: {
-            linkedin: 'https://linkedin.com/in/prof-lisa-wang',
-            scholar: 'https://scholar.google.com/citations?user=lwang',
-            website: 'https://eecs.berkeley.edu/~lwang'
-        },
-        initials: 'LW'
-    },
-    'james-chen': {
-        name: 'Dr. James Chen',
-        position: 'FPGA & DSP Expert',
-        bio: `Dr. James Chen specializes in FPGA-based digital signal processing and high-throughput system design. With expertise in parallel processing architectures and real-time systems, he has developed innovative solutions for telecommunications, radar, and medical imaging applications.
-
-He holds a Ph.D. in Computer Engineering and has over 10 years of experience in FPGA development and optimization. His work focuses on minimizing latency while maximizing throughput in complex digital systems.`,
-        social: {
-            linkedin: 'https://linkedin.com/in/james-chen-fpga',
-            scholar: 'https://scholar.google.com/citations?user=jchen',
-            github: 'https://github.com/jchen-fpga'
-        },
-        initials: 'JC'
-    },
-    'elena-rodriguez': {
-        name: 'Dr. Elena Rodriguez',
-        position: 'Biomedical Circuit Designer',
-        bio: `Dr. Elena Rodriguez is an expert in ultra-low noise analog circuit design for biomedical applications. She specializes in developing amplifiers and sensor interfaces that achieve nanovolt-level noise performance for portable medical devices and precision measurement systems.
-
-With a Ph.D. in Biomedical Engineering and 8 years of industry experience, she has contributed to numerous FDA-approved medical devices and holds several patents in biomedical circuit design.`,
-        social: {
-            linkedin: 'https://linkedin.com/in/elena-rodriguez-biomed',
-            scholar: 'https://scholar.google.com/citations?user=erodriguez',
-            website: 'https://erodriguez.bio'
-        },
-        initials: 'ER'
+        initials: 'AY'
     },
     'editorial-team': {
-        name: 'Editorial Team',
+        name: 'Editorial Board',
         position: 'Mixed Signal Editorial',
         bio: `Our editorial team consists of experienced engineers and technical writers who are passionate about making complex mixed-signal design concepts accessible to engineers at all levels. We create comprehensive tutorials, practical guides, and curated content to help engineers excel in their work.
 
@@ -188,7 +54,7 @@ The team combines decades of industry experience with a deep understanding of ed
         social: {
             website: 'https://mixedsignal.design/about'
         },
-        initials: 'ET'
+        initials: 'EB'
     }
 };
 
@@ -411,12 +277,8 @@ function generateSocialLinks(social) {
 function updateAuthorCounts() {
     // Map author slugs to their display names for matching
     const authorMapping = {
-        'sarah-chen': 'Dr. Sarah Chen',
-        'michael-zhang': 'Dr. Michael Zhang',
-        'lisa-wang': 'Prof. Lisa Wang',
-        'james-chen': 'Dr. James Chen',
-        'elena-rodriguez': 'Dr. Elena Rodriguez',
-        'editorial-team': 'Editorial Team'
+        'amitabh-yadav': 'Mr. Amitabh Yadav',
+        'editorial-team': 'Editorial Board'
     };
     
     // Update counts for each author
