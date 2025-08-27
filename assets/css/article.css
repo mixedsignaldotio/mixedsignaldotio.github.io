@@ -746,6 +746,16 @@ cite:hover {
         flex-direction: column;
         gap: 1.5rem;
     }
+
+    .author-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    .share-icons {
+        width: 100%;
+        justify-content: flex-start;
+    }
 }
 
 /* Article Sidebar Styles */

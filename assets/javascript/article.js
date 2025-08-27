@@ -302,28 +302,53 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Sidebar toggle functionality
-function initializeSidebarToggle() {
-    const sidebar = document.getElementById('article-sidebar');
-    const toggleBtn = document.getElementById('sidebar-toggle');
-    const toggleText = toggleBtn.querySelector('.toggle-text');
-    
-    if (!sidebar || !toggleBtn) return;
-    
-    toggleBtn.addEventListener('click', function() {
-        const isHidden = sidebar.classList.contains('hidden');
-        
-        if (isHidden) {
-            // Show sidebar
-            sidebar.classList.remove('hidden');
-            toggleText.textContent = 'Hide Discussion';
-        } else {
-            // Hide sidebar
-            sidebar.classList.add('hidden');
-            toggleText.textContent = 'Show Discussion';
-        }
-    });
-}
+  // Function to get saved sidebar state
+  function getSidebarState() {
+      return localStorage.getItem('sidebarHidden') === 'true';
+  }
+
+  // Function to save sidebar state
+  function saveSidebarState(isHidden) {
+      localStorage.setItem('sidebarHidden', isHidden.toString());
+  }
+
+  // Sidebar toggle functionality
+  function initializeSidebarToggle() {
+      const sidebar = document.getElementById('article-sidebar');
+      const toggleBtn = document.getElementById('sidebar-toggle');
+      const toggleText = toggleBtn?.querySelector('.toggle-text');
+
+      if (!sidebar || !toggleBtn) return;
+
+      // Apply saved state on initialization
+      const isHidden = getSidebarState();
+      if (isHidden) {
+          sidebar.classList.add('hidden');
+          if (toggleText) {
+              toggleText.textContent = 'Show Discussion';
+          }
+      }
+
+      toggleBtn.addEventListener('click', function() {
+          const isHidden = sidebar.classList.contains('hidden');
+
+          if (isHidden) {
+              // Show sidebar
+              sidebar.classList.remove('hidden');
+              if (toggleText) {
+                  toggleText.textContent = 'Hide Discussion';
+              }
+              saveSidebarState(false);
+          } else {
+              // Hide sidebar
+              sidebar.classList.add('hidden');
+              if (toggleText) {
+                  toggleText.textContent = 'Show Discussion';
+              }
+              saveSidebarState(true);
+          }
+      });
+  }
 
 // Subscribe modal functionality
 function initializeSubscribeModal() {
