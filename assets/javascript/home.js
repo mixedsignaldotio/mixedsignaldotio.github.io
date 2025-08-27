@@ -1,6 +1,7 @@
 // Home page JavaScript - Horizontal scrolling and interactive features
 
 document.addEventListener('DOMContentLoaded', function() {
+    const scrollContainer = null;
     // Set current date
     const dateElement = document.getElementById('current-date');
     if (dateElement) {
@@ -328,30 +329,90 @@ function initializeTagFiltering() {
 
 function filterArticles(tag, articles) {
     let visibleCount = 0;
-    
-    articles.forEach(article => {
-        const articleTags = article.getAttribute('data-tags') || '';
-        
-        if (tag === 'all' || articleTags.includes(tag)) {
-            article.style.display = '';
-            article.style.opacity = '0';
-            visibleCount++;
-            
-            // Animate in with delay
-            setTimeout(() => {
-                article.style.opacity = '1';
-                article.style.transform = 'translateY(0)';
-            }, visibleCount * 50);
-        } else {
-            article.style.opacity = '0';
-            article.style.transform = 'translateY(-10px)';
-            
-            setTimeout(() => {
-                article.style.display = 'none';
-            }, 200);
+    const sidebarArticles = document.querySelector('.sidebar-articles');
+    const mainArticles = document.querySelectorAll('.main-articles .list-article');
+
+    // Special handling for tutorials and opinion
+    if (tag === 'tutorials' || tag === 'opinion') {
+        // Hide sidebar completely
+        if (sidebarArticles) {
+            sidebarArticles.style.display = 'none';
         }
-    });
-    
+
+        // Show only matching articles in main column
+        mainArticles.forEach(article => {
+            const articleTags = article.getAttribute('data-tags') || '';
+
+            if (articleTags.includes(tag)) {
+                article.style.display = '';
+                article.style.opacity = '0';
+                visibleCount++;
+
+                setTimeout(() => {
+                    article.style.opacity = '1';
+                    article.style.transform = 'translateY(0)';
+                }, visibleCount * 50);
+            } else {
+                article.style.opacity = '0';
+                article.style.transform = 'translateY(-10px)';
+
+                setTimeout(() => {
+                    article.style.display = 'none';
+                }, 200);
+            }
+        });
+    } else {
+        // Normal filtering for other tags
+        if (sidebarArticles) {
+            sidebarArticles.style.display = ''; // Show sidebar for other tags
+        }
+
+        articles.forEach(article => {
+            const articleTags = article.getAttribute('data-tags') || '';
+
+            // Skip tutorials and opinion articles in main column unless viewing all
+            if ((article.classList.contains('tutorials-article') ||
+                 article.classList.contains('opinion-article')) &&
+                tag !== 'all') {
+                article.style.display = 'none';
+                return;
+            }
+
+            if (tag === 'all') {
+                // For 'all', show regular articles but not tutorials/opinion in main
+                if (article.classList.contains('tutorials-article') ||
+                    article.classList.contains('opinion-article')) {
+                    article.style.display = 'none';
+                } else {
+                    article.style.display = '';
+                    article.style.opacity = '0';
+                    visibleCount++;
+
+                    setTimeout(() => {
+                        article.style.opacity = '1';
+                        article.style.transform = 'translateY(0)';
+                    }, visibleCount * 50);
+                }
+            } else if (articleTags.includes(tag)) {
+                article.style.display = '';
+                article.style.opacity = '0';
+                visibleCount++;
+
+                setTimeout(() => {
+                    article.style.opacity = '1';
+                    article.style.transform = 'translateY(0)';
+                }, visibleCount * 50);
+            } else {
+                article.style.opacity = '0';
+                article.style.transform = 'translateY(-10px)';
+
+                setTimeout(() => {
+                    article.style.display = 'none';
+                }, 200);
+            }
+        });
+    }
+
     // Hide/show featured article based on tag selection
     const heroSection = document.getElementById('hero-section');
     if (heroSection) {
@@ -361,13 +422,58 @@ function filterArticles(tag, articles) {
             heroSection.style.display = 'none';
         }
     }
-    
-    // Hide/show sidebar sections based on visible articles
-    updateSidebarSections(tag);
-    
+
+    // Update sidebar sections visibility
+    if (tag !== 'tutorials' && tag !== 'opinion') {
+        updateSidebarSections(tag);
+    }
+
     // Update counts in navigation if needed
     updateTagCounts(tag);
 }
+
+// function filterArticles(tag, articles) {
+//    let visibleCount = 0;
+//    
+//    articles.forEach(article => {
+//        const articleTags = article.getAttribute('data-tags') || '';
+//        
+//        if (tag === 'all' || articleTags.includes(tag)) {
+//            article.style.display = '';
+//            article.style.opacity = '0';
+//            visibleCount++;
+//            
+//            // Animate in with delay
+//            setTimeout(() => {
+//                article.style.opacity = '1';
+//                article.style.transform = 'translateY(0)';
+//            }, visibleCount * 50);
+//        } else {
+//            article.style.opacity = '0';
+//            article.style.transform = 'translateY(-10px)';
+//            
+//            setTimeout(() => {
+//                article.style.display = 'none';
+//            }, 200);
+//        }
+//    });
+    
+//    // Hide/show featured article based on tag selection
+//    const heroSection = document.getElementById('hero-section');
+//    if (heroSection) {
+//        if (tag === 'all') {
+//            heroSection.style.display = 'block';
+//        } else {
+//            heroSection.style.display = 'none';
+//        }
+//    }
+//    
+//    // Hide/show sidebar sections based on visible articles
+//    updateSidebarSections(tag);
+//    
+//    // Update counts in navigation if needed
+//    updateTagCounts(tag);
+// }
 
 function updateSidebarSections(activeTag) {
     const sidebarSections = document.querySelectorAll('.sidebar-section');

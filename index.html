@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mixed Signal - Where Analog Meets Digital</title>
     <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
-    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
     
     <!-- Reuse existing styles -->
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -40,10 +39,10 @@
                 <div class="nav-item">
                     <a href="#" class="tag-filter" data-tag="analog">Analog</a>
                 </div>
-                <!--<div class="nav-item">
+                <div class="nav-item">
                     <a href="#" class="tag-filter" data-tag="digital">Digital</a>
                 </div>
-                <div class="nav-item">
+                <!--<div class="nav-item">
                     <a href="#" class="tag-filter" data-tag="mixed-signal">Mixed Signal</a>
                 </div>
                 <div class="nav-item">
@@ -111,10 +110,82 @@
                         </div>
                     </article>
 
+                    <article class="list-article minor tutorials-article" data-tags="tutorials digital" style="display: none;">
+                        <div class="article-content-wrapper">
+                            <span class="article-tag">Tutorial</span>
+                            <h2><a href="#">SPICE Simulation for Beginners</a></h2>
+                            <p class="article-summary">Basic tutorial</p>
+                        </div>
+                    </article>                     
+                    <article class="list-article minor tutorials-article" data-tags="tutorials mixed-signal" style="display: none;">
+                        <div class="article-content-wrapper">
+                            <span class="article-tag">Tutorial</span>
+                            <h2><a href="#">Understanding ADC Specifications</a></h2>
+                            <p class="article-summary">Fundamentals</p>
+                        </div>
+                    </article>
+
+                    <article class="list-article minor opinion-article" data-tags="opinion analog" style="display: none;">
+                        <div class="article-content-wrapper">
+                            <span class="article-tag">Opinion</span>
+                            <h2><a href="#">The Case for Open-Source Silicon</a></h2>
+                            <p class="article-summary">Why the semiconductor industry needs to embrace open hardware principles...</p>
+                            <div class="article-meta">
+                                <span class="author">Editorial Board</span>
+                            </div>
+                        </div>
+                    </article>                  
+                    <article class="list-article minor opinion-article" data-tags="opinion" style="display: none;">
+                        <div class="article-content-wrapper">
+                            <span class="article-tag">Opinion</span>
+                            <h2><a href="#">Moore's Law is Dead, Long Live System Integration</a></h2>
+                            <p class="article-summary">The future belongs to clever packaging and heterogeneous integration...</p>
+                            <div class="article-meta">
+                                <span class="author">Editorial Board</span>
+                            </div>
+                        </div>
+                    </article>
                 </div>
 
                 <!-- Sidebar Articles -->
                 <div class="sidebar-articles">
+                    <div class="sidebar-section" id="tutorials-sidebar">
+                        <h4>Tutorials</h4>
+                        <article class="sidebar-article" data-tags="tutorials digital">
+                            <h5><a href="#">SPICE Simulation for Beginners</a></h5>
+                            <div class="article-meta">
+                                <span class="date">Basic tutorial</span>
+                            </div>
+                        </article>
+                        <article class="sidebar-article" data-tags="tutorials mixed-signal">
+                            <h5><a href="#">Understanding ADC Specifications</a></h5>
+                            <div class="article-meta">
+                                <span class="date">Fundamentals</span>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="sidebar-section" id="opinion-sidebar">
+                        <h4>Opinion</h4>
+                        <article class="sidebar-article opinion" data-tags="opinion analog">
+                            <h5><a href="#">The Case for Open-Source Silicon</a></h5>
+                            <p class="opinion-excerpt">Why the semiconductor industry needs to embrace open hardware principles...</p>
+                              <div class="article-meta">
+                                  <span class="author">Editorial Board</span>
+                              </div>
+                        </article>
+
+                        <article class="sidebar-article opinion" data-tags="opinion">
+                            <h5><a href="#">Moore's Law is Dead, Long Live System Integration</a></h5>
+                            <p class="opinion-excerpt">The future belongs to clever packaging and heterogeneous integration...</p>
+                            <div class="article-meta">
+                                <span class="author">Editorial Board</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Sidebar Articles -->
+                <!-- <div class="sidebar-articles">
                     <div class="sidebar-section">
                         <h4>Tutorials</h4>                        
                         <article class="sidebar-article" data-tags="tutorials digital">
@@ -151,7 +222,7 @@
                         </article>
 
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>

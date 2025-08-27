@@ -1191,7 +1191,7 @@ body {
 
 .list-article.major {
     padding: 2rem 0;
-    border-bottom: 2px solid #e2e2e2;
+    border-bottom: 1px solid #e2e2e2;
 }
 
 .list-article h2 {
@@ -1409,6 +1409,10 @@ body {
     }   
 
     .subscribe-btn {
+        display: none;
+    }
+
+    .footer-logo {
         display: none;
     }
 }
