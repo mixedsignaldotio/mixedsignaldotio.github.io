@@ -16,7 +16,7 @@ const authorArticles = {
         {
             title: 'SPICE Simulation for Beginners',
             url: '#',
-            category: 'Tutorials',
+            category: 'Tutorial',
             excerpt: 'Basic tutorial on circuit simulation using SPICE, covering fundamental concepts and practical examples.',
             date: 'Jan. 10, 2025',
             readTime: '12 min read'
@@ -24,7 +24,7 @@ const authorArticles = {
         {
             title: 'Understanding ADC Specifications',
             url: '#',
-            category: 'Tutorials',
+            category: 'Tutorial',
             excerpt: 'The key specifications are resolution and bandwidth — how accurately and quickly can the ADC resolve an analog input signal? An ideal ADC would have infinite resolution and bandwidth, but obviously, that isn’t possible.',
             date: 'Aug. 30, 2025',
             readTime: '14 min read'
