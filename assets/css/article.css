@@ -764,7 +764,7 @@ cite:hover {
     top: 120px;
     height: fit-content;
     background: white;
-    border-left: 1px solid #e0e0e0;
+    /* border-left: 1px solid #e0e0e0; */
     padding-left: 2rem;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
