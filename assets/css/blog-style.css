@@ -1459,6 +1459,7 @@ body.dark-mode .builtin { color: #dcdcaa; }
 @media (max-width: 768px) {
   body {
     margin: 10px;
+
   }
   
   .blog-container {
@@ -1527,6 +1528,7 @@ body.dark-mode .builtin { color: #dcdcaa; }
 @media (max-width: 480px) {
   body {
     margin: 5px;
+    display: block;
     font-size: 16px; /* Prevent zoom on iOS */
   }
   
@@ -1593,6 +1595,7 @@ body.dark-mode .builtin { color: #dcdcaa; }
   /* Sticky header mobile */
   .sticky-header {
     padding: 8px 10px;
+    display: block;
   }
   
   .sticky-header-content {
