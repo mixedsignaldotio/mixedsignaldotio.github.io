@@ -58,7 +58,6 @@
     </header>
 
     <article class="blog-content">
-    <nav id="category-bar" aria-label="Categories"></nav>
       <!-- Articles List -->
       <div class="articles-list">
       
@@ -68,9 +67,29 @@
             <a href="articles/202508032343.html">The Hardware Lottery: We may be trying to build a ladder to the Moon</a>
           </div>
         </div> -->
-        <table id="articles-table" aria-label="Articles" style="width:100%; border-collapse:collapse; border-spacing:0; margin:0; padding:0;">
-        <tbody><!-- rows injected by JS --></tbody>
+
+        <table style="width:100%; border-collapse:collapse; border-spacing:0; margin:0; padding:0;">
+          <!-- ARTICLE START -->
+        <tr class="article-item" style="border:none;">
+            <td class="article-date"
+                style="text-align: right; font-family:'Courier New',Courier,monospace; font-weight:bold;
+                       vertical-align:top; white-space:nowrap; font-size:14px; color:#666;
+                       padding:0; margin:0; line-height:1;">
+              01 Sep. 2025
+            </td>
+            <td class="article-title"
+                style="text-align: right; vertical-align:top; font-size:16px; padding:0; margin:0; line-height:1;">
+              <a href="articles/202509012239.html"
+                 style="text-decoration:none; display:inline; margin:0; padding:0; line-height:1;">
+                Notes on Digital In-Memory Computing &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </a>
+            </td>
+          </tr>
+          <!-- ARTICLE END -->
+
         </table>
+
+      
 
       </div>
 
@@ -84,17 +103,14 @@
   <!-- <footer class="footer">
     <p>&copy; 2018-<span id="currentYear"></span> Amitabh Yadav</p>
   </footer> -->
-  <!-- <div class="fixed-footer">
+  <div class="fixed-footer">
     <div class="left-links">
      
     </div>
     <div class="right-copy" style="padding-left: 5px;">
     &#169; 20<span id="currentYear"></span> Mixed Signal Blog
     </div>
-  </div> -->
-
-  <script src="articles-list.js"></script> 
-  <script src="assets/js/list-by-category.js" defer></script> 
+  </div>
 
   <!-- Go to Top Button -->
   <button class="go-to-top" id="goToTop" aria-label="Go to top"></button>
