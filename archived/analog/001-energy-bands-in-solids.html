@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Bands in Solids - Mixed Signal</title>
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
+    
+    <!-- Core Stylesheets -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/article.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- MathJax for Mathematical Equations -->
+    <!--<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/core-js-bundle@3/minified.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                tags: 'ams'
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="header-top">
+                <h1 class="site-logo article-page-logo">
+                    <a href="../index.html">
+                        <img src="../assets/icons/ms-logo.png" alt="Mixed Signal" class="logo-png article-logo-png">
+                    </a>
+                </h1>
+                <div class="header-actions">
+                    <button class="subscribe-btn">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="article-page-container">
+        <!-- Article Content -->
+        <article class="article-container">
+            <!-- Article Header -->
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="category">Analog Design</span>
+                    <span class="date">August 27, 2025</span>
+                    <!--<span class="read-time">12 min read</span> -->
+                </div>
+                <h1 class="article-title">Energy Bands in Solids</h1>
+                <p class="article-subtitle">This article introduces the foundations of energy band theory in solids, beginning with atomic structure and discrete energy levels, then extending to energy bands in crystals. It explains how band gaps classify materials into insulators, semiconductors, or metals, highlighting the roles of electrons, holes, and quantum mechanics in conduction.</p>
+                <div class="author-info">
+                    <div class="author-details">
+                        <span class="author">By <a href="../authors/amitabh-yadav.html">Mr. Amitabh Yadav</a></span>
+                        <span class="author-title">Ph.D. Candidate, École Polytechnique Fédérale de Lausanne (EPFL)</span>
+                    </div>
+                    <div class="share-icons">
+                        <span class="share-label">Share:</span>
+                        <a href="#" class="share-icon" data-platform="linkedin" title="Share on LinkedIn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="share-icon" data-platform="x" title="Share on X">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="share-icon" data-platform="email" title="Share via Email">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M2 6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6zm2 0v12h16V8.414L12 14.586 4 8.414V6h16L12 12 4 6z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Article Content -->
+            <div class="article-content">
+                <!-- Drop Cap First Paragraph -->
+                <div class="drop-cap">
+                    <p>In isolated atoms, electrons occupy discrete energy levels. When many atoms bind into a periodic crystal, the overlap of outer (valence) orbitals causes each atomic level to split into an enormous number of closely spaced levels. These form quasi-continuous <em>energy bands</em>, which govern electrical conduction.</p>
+                </div>
+                <p>
+                The chapter "Energy Bands in Solids" begins with the fundamental properties of charged particles. The electron has charge 
+                $$q = 1.60 \times 10^{-19}\, C$$ 
+                and mass 
+                $$m = 9.11 \times 10^{-31}\, kg.$$ 
+                Since one coulomb corresponds to about 
+                $$6 \times 10^{18}$$ 
+                electrons, even picoampere currents represent millions of electrons per second. In crystals like silicon, atoms form covalent bonds by sharing electrons. If an electron is missing, the vacancy behaves as a "hole," a positive charge carrier.
+                </p>
+
+                <p>
+                The electric field intensity $\mathcal{E}$ relates force and charge:
+                $$f = q\mathcal{E} = m\frac{dv}{dt} \quad (1-1)$$
+                Potential is defined as:
+                $$\mathcal{E} = -\frac{dV}{dx} \quad (1-2, 1-3)$$
+                Potential energy is:
+                $$U = qV \quad (1-4)$$
+                and the total energy is conserved:
+                $$W = U + \tfrac{1}{2}mv^2 = \text{constant} \quad (1-5)$$
+                </p>
+
+                <p>
+                The electron-volt (eV) is a natural unit of energy in semiconductor physics:
+                $$1\, eV = 1.60 \times 10^{-19}\, J \quad (1-7)$$
+                It is the energy gained by an electron accelerated through 1 volt.
+                </p>
+
+                <p>
+                Rutherford’s model depicted electrons orbiting a dense positive nucleus, but classical mechanics predicted instability. Bohr resolved this by postulating discrete stationary states. Electrons radiate only during transitions between levels:
+                $$f = \frac{W_2 - W_1}{h} \quad (1-11)$$
+                with quantized angular momentum:
+                $$mvr = \frac{nh}{2\pi} \quad (1-12)$$
+                This yields hydrogen atom energies:
+                $$W = -\frac{mq^4}{8h^2\epsilon_0^2 n^2} \quad (1-13)$$
+                with ionization energy of 13.6 eV.
+                </p>
+
+                <p>
+                Electrons can be excited by collisions or photons. A photon has energy:
+                $$E = hf \quad (1-14)$$
+                and de Broglie related matter waves to momentum:
+                $$\lambda = \frac{h}{mv} \quad (1-15)$$
+                Thus, electrons exhibit both particle and wave properties. Schrödinger’s wave mechanics confirmed quantized solutions consistent with Bohr’s model.
+                </p>
+
+                <p>
+                In multi-electron atoms, quantum numbers $n$, $l$, $m_l$, and $m_s$ define electron states, and Pauli’s exclusion principle prohibits two electrons from sharing identical quantum states. Atoms organize into shells (K, L, M, N) and subshells (s, p, d, f). Group IVA elements (C, Si, Ge, Sn) are tetravalent, contributing four valence electrons, but exhibit different solid-state properties depending on band formation.
+                </p>
+
+                <p>
+                When atoms form crystals, inner electrons remain localized, but outer electrons overlap significantly. For $N$ atoms, each orbital produces $N$ nearly degenerate states. These broaden into continuous <b>energy bands</b>. Two critical bands form:  
+                - The <b>Valence Band</b>, filled with bonding electrons.  
+                - The <b>Conduction Band</b>, higher energy states available for conduction.  
+                Between them lies the <b>Forbidden Energy Gap</b>:
+                $$E_g = E_c - E_v$$
+                </p>
+
+                <p>
+                Classification of solids follows from $E_g$:  
+                - <b>Insulators</b>: Wide gap, $E_g > 5 \, eV$, e.g., diamond ($E_g \approx 6 eV$). No conduction under normal conditions.  
+                - <b>Semiconductors</b>: Narrow gap, $E_g \sim 0.5 - 1.5 \, eV$, e.g., silicon ($1.21 eV$), germanium ($0.785 eV$). Thermal excitation produces electron-hole pairs, increasing conductivity with temperature.  
+                - <b>Metals</b>: Overlapping bands or partially filled conduction band. Always conductive, even at 0 K.  
+                </p>
+
+                <p>
+                Holes in the valence band act as positive charge carriers and contribute to current flow alongside electrons. Doping with impurities introduces new energy levels inside the forbidden gap, creating <b>extrinsic semiconductors</b>. Intrinsic semiconductors rely on pure thermal excitation, while extrinsic conduction is dominated by dopants.
+                </p>
+
+                <p>
+                Finally, the band gap is temperature-dependent: as interatomic spacing changes, $E_g$ decreases with increasing temperature, further increasing conductivity. Thus, band theory unifies atomic structure, quantum mechanics, and solid-state physics to explain why materials act as insulators, semiconductors, or conductors.
+                </p>
+
+                <!-- <blockquote class="article-quote">
+                    "The art of mixed-signal design lies not in mastering analog or digital techniques separately, but in understanding their interaction at the most fundamental level."
+                    <cite>— Prof. Robert Johnson, Stanford University</cite>
+                </blockquote> -->
+
+                <!-- <figure class="article-figure">
+                    <div class="figure-placeholder">
+                        <span>Figure 1: Mixed-Signal Design Flow Diagram</span>
+                    </div>
+                    <figcaption>Traditional vs. modern mixed-signal design methodologies showing the evolution from sequential to concurrent design approaches.</figcaption>
+                </figure> -->
+                <div class="article-footer">
+                </div>
+            </div>
+            
+            <!-- References Section (Auto-generated) -->
+            <section id="references" class="references-section" style="display: none;">
+                <h2>References</h2>
+                <ol class="references-list"></ol>
+            </section>
+        </article>
+        
+        <!-- Sidebar -->
+        <aside class="article-sidebar" id="article-sidebar">
+            <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
+                <span class="toggle-text">Hide Discussion</span>
+            </button>
+            <div class="sidebar-content">
+                <div class="sidebar-section">
+                    <h3>Discussion</h3>
+                    <div id="disqus_thread"></div>
+                        <script>
+                            /**
+                            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                            
+                            var disqus_config = function () {
+                            this.page.url = 'https://mixedsignal.io/analog/001-energy-bands-in-solids.html';  // Replace PAGE_URL with your page's canonical URL variable
+                            this.page.identifier = '000000000000000001'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                            };
+                            
+                            (function() { // DON'T EDIT BELOW THIS LINE
+                            var d = document, s = d.createElement('script');
+                            s.src = 'https://mixed-signal.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                            })();
+                        </script>
+                        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <!--<div class="disqus-placeholder">
+                        <div class="placeholder-content">
+                            <p>Comments powered by Disqus</p>
+                            <p class="placeholder-note">Disqus integration will be added here</p>
+                        </div>
+                    </div> -->
+                </div>
+                
+                <div class="sidebar-section ad-section" id="ad-section" style="display: none;">
+                    <h3>Advertisement</h3>
+                    <div class="adsense-container" id="adsense-container">
+                        <!-- AdSense code will be inserted here -->
+                    </div>
+                </div>
+                
+                <div class="sidebar-section ad-section-small" id="ad-section-small" style="display: none;">
+                    <div class="adsense-container-small" id="adsense-container-small">
+                        <!-- Small AdSense code will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Subscribe Modal -->
+    <div id="subscribe-modal" class="subscribe-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Subscribe to Mixed Signal Newsletter</h3>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="subscribe-form" class="subscribe-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="subscriber-name">Name</label>
+                            <input type="text" id="subscriber-name" name="name" maxlength="50" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subscriber-email">Email</label>
+                            <input type="email" id="subscriber-email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-cancel" id="btn-cancel">Cancel</button>
+                        <button type="submit" class="btn-submit">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core JavaScript -->
+    <script src="../assets/javascript/article.js"></script>
+</body>
+</html>
