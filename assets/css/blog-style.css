@@ -1772,7 +1772,7 @@ body.dark-mode .builtin { color: #dcdcaa; }
 #category-bar {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px; /* spacing between labels */
+  gap: 12px; /* spacing between labels */
   padding: 0 20px; /* left and right padding */
 }
 
@@ -1781,7 +1781,8 @@ body.dark-mode .builtin { color: #dcdcaa; }
   border: none;
   padding: 0;
   margin: 0;
-  font: inherit-0.6rem;
+  font: inherit;
+  font-size: 0.9rem;
   color: inherit;
   cursor: pointer;
   text-decoration: none;
