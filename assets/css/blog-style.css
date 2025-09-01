@@ -878,7 +878,7 @@ body.dark-mode .:hover {
 
 .scroll-progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, #ff8606 0%, #f8fafc 50%, #00ea2f 100%);
+  background: linear-gradient(90deg, #60a5fa 0%, #f8fafc 50%, #fbbf24 100%);
   width: 0%;
   transition: width 0.1s ease-out;
 }
