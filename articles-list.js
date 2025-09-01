@@ -12,4 +12,5 @@ window.ARTICLES = [
     categories: ["SEMICONDUCTOR"]
   }
   // add comma here then add next article
+  // categories: DIGITAL, ANALOG, RF, MIXED SIGNAL, COMPUTER ARCHITECTURE, DEEP LEARNING, SEMICONDUCTOR, COMPUTE IN-MEMORY, NEUROMORPHIC, QUANTUM COMPUTING
 ];

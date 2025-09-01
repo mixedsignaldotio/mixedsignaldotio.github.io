@@ -1781,7 +1781,7 @@ body.dark-mode .builtin { color: #dcdcaa; }
   border: none;
   padding: 0;
   margin: 0;
-  font: inherit;
+  font: inherit-0.6rem;
   color: inherit;
   cursor: pointer;
   text-decoration: none;
