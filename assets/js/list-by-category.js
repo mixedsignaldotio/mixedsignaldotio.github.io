@@ -76,6 +76,7 @@
       const tr = document.createElement("tr");
       tr.className = "article-item";
       tr.style.border = "none";
+      tr.style.padding = "0.5rem 0.5rem 0.5rem 0";
 
       // Date cell (col 1)
       const tdDate = document.createElement("td");

@@ -4,12 +4,14 @@
 
 body {
   font-family: 'Karla', 'Helvetica', Arial, sans-serif;
-  margin: 20px;  /* keep vertical margin, center horizontally */
+  margin: 20px;  
+  height: 100%;
   background-color: #fff;
   color: #111;
   transition: background-color 0.5s ease, color 0.5s ease;
   position: relative;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* Custom Scrollbar Styling */
@@ -45,7 +47,7 @@ body::before {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 98.5vh;
   background: 
     radial-gradient(circle at 20% 50%, rgba(219, 234, 254, 0.5) 0%, transparent 60%),
     radial-gradient(circle at 80% 20%, rgba(239, 246, 255, 0.4) 0%, transparent 60%),
@@ -65,7 +67,7 @@ body::after {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 98.5vh;
   background-image: 
     linear-gradient(rgba(203, 213, 225, 0.12) 1px, transparent 1px),
     linear-gradient(90deg, rgba(203, 213, 225, 0.12) 1px, transparent 1px);
@@ -312,9 +314,9 @@ input:checked + .slider:hover::after {
 /* Blog post utilities */
 .blog-container {
   width: 100%;
-  max-width: 900px;
+  max-width:700px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0 20px;
 }
 
 /* Articles page specific styling */
@@ -412,7 +414,7 @@ body.dark-mode .main-title-blog{
 .blog-content {
   line-height: 1.7;
   font-size: 1.1rem;
-  text-align: justify;
+  /* text-align: justify; */
 }
 
 .blog-content h2,
