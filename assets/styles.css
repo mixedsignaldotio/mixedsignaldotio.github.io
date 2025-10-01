@@ -50,7 +50,7 @@ main#article {
 }
 
 #article p {
-  text-align: justify;
+  text-align: left;
   text-justify: inter-word;   /* better word spacing on some UAs */
   hyphens: auto;              /* allow soft hyphenation */
   -webkit-hyphens: auto;
