@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>SRAM Architecture and Memory Cell (SRAM Design Part 1)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../../assets/styles.css" />
+  <script defer src="../../assets/script.js"></script>
+  <link rel="icon" type="image/x-icon" href="../../assets/images/favicon_xf_eye_fancy_2_maxsize.ico" sizes="any">
+  <!-- GOOGLE AD BEGIN -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  <!-- GOOGLE AD END -->
+
+  <!-- MathJax (v3) -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+
+  <!-- Sticky header (mobile/tablet active; desktop shows floating tools via CSS) -->
+  <header id="sticky-header" aria-hidden="true">
+    <div class="header-inner">
+      <div class="article-title">SRAM Architecture and Memory Cell</div>
+      <div class="header-actions">
+        <div class="toc-dropdown">
+          <button id="toc-button" aria-haspopup="true" aria-expanded="false">Navigation ▾</button>
+          <nav id="toc-menu" class="toc-menu" aria-label="Table of contents"></nav>
+        </div>
+        <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ARTICLE CONTENT ONLY -->
+  <main id="article">
+    <!-- OLD STUFF
+    <img class="article-logo logo-light" src="../../assets/images/hackframe_header_light.svg" alt="Hackframe logo (light)" />
+    <img class="article-logo logo-dark"  src="../../assets/images/hackframe_header_dark.svg"  alt="Hackframe logo (dark)" /> 
+    -->
+
+    <!-- NEW STUFF: USE THIS : Brand row: logo (left) + optional buttons (right) -->
+     <div class="article-brand-row">
+       <div class="brand-logo">
+         <!-- <img class="article-logo logo-light" src="../../assets/images/hackframe_header_light.svg" alt="Hackframe logo (light)" />
+         <img class="article-logo logo-dark"  src="../../assets/images/hackframe_header_dark.svg"  alt="Hackframe logo (dark)" /> -->
+       </div>
+       <nav class="brand-actions" aria-label="Article quick actions">
+         <!-- <a class="btn-icon" href="https://github.com/your/repo" target="_blank" rel="noopener" title="GitHub">
+           <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.41-1.34-1.78-1.34-1.78-1.09-.74.08-.72.08-.72 1.2.08 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.48.99.11-.78.42-1.3.77-1.6-2.67-.3-5.48-1.34-5.48-5.97 0-1.32.47-2.39 1.23-3.24-.12-.3-.53-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.46 11.46 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.17.77.85 1.23 1.92 1.23 3.24 0 4.64-2.81 5.66-5.49 5.96.43.38.81 1.12.81 2.26v3.35c0 .32.22.7.83.58A12 12 0 0 0 12 .5z"/></svg>
+         </a> -->
+         <!-- <a class="btn-icon" href="paper.pdf" target="_blank" rel="noopener" title="Download PDF">
+           <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm0 2.5L18.5 9H14zM7 13h2a2 2 0 0 0 0-4H7v4zm1.5-2.5H9a.5.5 0 0 1 0 1H8.5zm3.5 2.5h1.25c1.1 0 2-.9 2-2s-.9-2-2-2H12zm1.25-3H13v2h.25a1 1 0 0 0 0-2zM7 17h2.5a1 1 0 0 0 0-2H8.5V14H7zM12 17h2a1 1 0 1 0 0-2h-2z"/></svg>
+         </a> -->
+         <!-- <a class="btn-icon" href="https://your-website.example" target="_blank" rel="noopener" title="Project Website">
+           <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2m0 2c1.2 0 2.32.26 3.33.73-.5.62-1.17 1.66-1.7 3.27H10.4C9.86 6.39 9.2 5.35 8.67 4.73A8 8 0 0 1 12 4m-6.93 8c.12-1.22.52-2.36 1.14-3.37.7.72 1.74 1.2 3.19 1.37A26.3 26.3 0 0 0 9.3 12c0 .36.01.7.03 1.02-1.45.18-2.49.66-3.19 1.38A7.98 7.98 0 0 1 5.07 12m6.85 7.27c-.62-.64-1.33-1.83-1.82-3.77h3.8c-.49 1.94-1.2 3.13-1.98 3.77M8.67 19.27A8 8 0 0 1 4.9 15.6c.5-.58 1.43-1.08 2.92-1.29.37 2.1 1.07 3.62 1.85 4.96M12 20a8 8 0 0 1-3.33-.73c.52-.63 1.18-1.67 1.71-3.27h3.22c.53 1.6 1.2 2.64 1.7 3.27A7.97 7.97 0 0 1 12 20m3.33-.73c.78-1.34 1.48-2.86 1.85-4.96 1.49.21 2.42.71 2.92 1.29a8 8 0 0 1-3.77 3.67M18.93 12c-.12 1.22-.52 2.36-1.14 3.37-.7-.72-1.74-1.2-3.19-1.37.02-.33.03-.67.03-1 0-.35-.01-.69-.03-1.02 1.45-.18 2.49-.66 3.19-1.38.62 1 1.02 2.15 1.14 3.37M15.6 6.73c.37-2.1 1.07-3.62 1.85-4.96A8 8 0 0 1 19.1 8.4c-.5.58-1.43 1.08-2.92 1.29-.37-2.1-1.07-3.62-1.85-4.96Z"/></svg>
+         </a> -->
+       </nav>
+     </div>
+     <!-- NEW STUFF ENDS -->
+    <h1 id="article-title">SRAM Architecture and Memory Cell</h1>
+
+
+    <section>
+      <h2>Introduction</h2>
+      <p>
+        Modern edge workloads—from AR glasses to industrial sensors—demand sub-10&nbsp;ms latency at milliwatt scales
+        [horowitz2014][han2015].
+      </p>
+    </section>
+
+    <!-- References (auto-generated, numbers & text) -->
+    <section id="references-section">
+      <h2>References</h2>
+      <ol id="references"></ol>
+    </section>
+
+    <!-- Reference catalog for tooltips + generation -->
+    <template id="ref-catalog">
+      <li data-key="horowitz2014">Horowitz, M. (2014). 1.1 Computing’s energy problem (and what we can do about it). <i>ISSCC</i>.</li>
+      <li data-key="han2015">Han, S., et al. (2015). Learning both weights and connections for efficient neural networks. <i>NIPS</i>.</li>
+    </template>
+
+    <!-- Footer (after references) -->
+    <footer id="site-footer" style="margin-top:2rem; padding-top:1rem; border-top:1px solid var(--border); font-size:0.95rem;">
+      <p>
+        This work is licensed under a Creative Commons Attribution - Non Commercial 4.0 International License.<br> 
+        This means you're free to copy, share, and build on this book, but not to sell it in any part or form.
+      </p>
+      <!-- <p>
+        Contact: <a href="mailto:"></a> • Date: Zeptember 32, 2068
+      </p> -->
+    </footer>
+  </main>
+</body>
+</html>

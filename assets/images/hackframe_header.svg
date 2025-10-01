@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1463.8 241.58">
+  <!-- Generator: Adobe Illustrator 29.5.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 141)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: none;
+        stroke: #39ff14;
+        stroke-miterlimit: 8;
+        stroke-width: 10.31px;
+      }
+
+      .st1 {
+        fill: #0e2841;
+        font-family: ArialMT, Arial;
+        font-size: 220px;
+        isolation: isolate;
+      }
+    </style>
+  </defs>
+  <text class="st1" transform="translate(393.4 196.48)"><tspan x="0" y="0">hackframe</tspan></text>
+  <text class="st1" transform="translate(1421.78 196.48)"><tspan x="0" y="0">.</tspan></text>
+  <path class="st0" d="M14.99,132.56c-1.19-34.94,20.35-126.88,58.24-113.55,37.88,13.33,130.48,189.63,169.08,193.51,38.6,3.89,94.84-168.88,62.52-170.21-32.32-1.33-210.14,168.37-256.45,162.25C2.06,198.43-7.94.35,26.93,5.55c34.86,5.19,182.05,229.26,230.65,230.17,48.61.92,90.48-223.52,60.95-224.7-29.52-1.18-187.53,197.37-238.12,217.62-50.59,20.26-64.22-61.14-65.42-96.08Z"/>
+</svg>

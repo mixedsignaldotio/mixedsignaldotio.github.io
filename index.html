@@ -1,100 +1,249 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KGRNQ4GH2V"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="utf-8" />
+  <title>MixedSignal.io</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  gtag('config', 'G-KGRNQ4GH2V');
-</script>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>MixedSignal.io</title>
-<link rel="stylesheet" href="assets/css/blog-style.css" />
+  <!-- Use your existing site CSS & JS -->
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script defer src="assets/script.js"></script>
 
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="assets/media/images/favicon.svg" />
+  <!-- Favicon (.ico) -->
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon_xf_eye_fancy_2_maxsize.ico" sizes="any">
 
-<!-- MathJax CDN (for mathematical equations) -->
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+  <!-- Google Font for brand title only -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Expletus+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <!-- Page-local styles (no edits to styles.css required) -->
+  <style>
+    /* Brand as text (no logo) */
+    .brand-title {
+      font-family: "Expletus Sans", var(--ui-font), system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      font-optical-sizing: auto;
+
+      font-weight: 700;
+      line-height: 1.15;
+      margin: 0 0 .5rem 0;
+    }
+    .brand-subtitle { font-family: "Expletus Sans", var(--ui-font), system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color: var(--fg); margin: 0 0 1rem 0; }
+
+    /* Simple link list (one per line, no bullets/numbers) */
+    .article-links { margin-top: .25rem; }
+    .article-links a {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      padding: .5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-family: "Expletus Sans", var(--ui-font), system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .article-links a:last-child { border-bottom: none; }
+    .article-links a:hover { background: var(--code-bg); }
+
+    /* Series group heading + its items (no collapsible) */
+    .series {
+      margin-top: .75rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: .25rem;
+      font-family: var(--ui-font);
+      font-weight: 600;
+    }
+    .series-items a {
+      padding-left: 1rem;           /* indent parts under the series heading */
+      border-bottom: 1px dashed var(--border);
+    }
+    .series-items a:last-child { border-bottom: none; }
+
+    /* Transparent sticky header background (as requested) */
+    #sticky-header { background: transparent !important; border: none !important; box-shadow: none !important; }
+  </style>
+<style>
+  .sponsors-footer {
+    margin-top: 2.5rem;
+    padding: 1.25rem 0 1.5rem;
+    /* removed border-top */
+    background: transparent;
+  }
+  .sponsors-inner {
+    max-width: 860px;           /* match article width */
+    margin: 0 auto;
+    padding: 0 1.25rem;
+  }
+  .sponsors-heading {
+    font-family: var(--ui-font);
+    font-weight: 600;
+    margin-bottom: .75rem;
+  }
+  .sponsor-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+    align-items: center;
+  }
+
+  /* Logos: no border, no box */
+  .sponsor-logos a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;                 /* no padded frame */
+    border: none;               /* ← removed border */
+    border-radius: 15px;           /* ← no rounding */
+    background: white;
+    text-decoration: none;
+  }
+
+  .sponsor-logos img {
+    display: block;
+    height: 65px;               /* adjust as needed */
+    width: auto;
+  }
+
+  /* Subtle hover: tiny opacity lift only (no background) */
+  .sponsor-logos a:hover img {
+    opacity: 0.9;
+  }
+
+  @media (max-width: 600px) {
+    .sponsor-logos img { height: 60px; }
+  }
+
+  @media print {
+    .sponsors-footer { display: none !important; }
+  }
+</style>
+<style>
+/* Left-aligned thin HR (short width) */
+.hr-short {
+  width: 120px;                 /* short line */
+  height: 0;
+  border: 0;
+  border-top: 1pt solid var(--border, #a2a2a2);
+  margin: 1.25rem 0;            /* left aligned (no auto centering) */
+}
+:root[data-theme="dark"] .hr-short {
+  border-top-color: #3a3f4a;    /* optional dark tweak */
+}
+
+/* Links: darker blue */
+a {
+  color: #1f6fd1;               /* base */
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  transition: color .15s ease, text-underline-offset .15s ease;
+}
+a:hover {
+  color: #195fb8;               /* hover */
+  text-underline-offset: 3px;
+}
+a:visited {
+  color: #2a78d6;               /* visited */
+}
+a:focus-visible {
+  outline: 2px solid #6aa3ff;   /* accessible focus ring */
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Keep the homepage article list neutral */
+.article-links a,
+.article-links a:visited,
+.article-links a:hover,
+.article-links a:focus-visible {
+  color: inherit !important;
+  text-decoration: none !important;
+  outline: none !important;
+  background: transparent;
+}
+.article-links a:hover { background: var(--code-bg); }
+
+</style>
+
 </head>
-<body data-page="articles">
-  <!-- Sticky Header -->
-  <header class="sticky-header" id="stickyHeader">
-    <div class="sticky-header-content">
-      <h1 class="sticky-header-title" id="stickyTitle">Mixed Signal</h1>
-      <div class="toc-dropdown" id="tocDropdown">
-        <button class="toc-button" id="tocButton">
-          <span>Articles</span>
-          <span class="toc-dropdown-arrow">▼</span>
-        </button>
-        <div class="toc-menu" id="tocMenu">
-          <!-- Article links will be generated by JavaScript -->
-        </div>
+<body>
+
+  <!-- Sticky header only to show the theme toggle; no ToC -->
+  <header id="sticky-header" aria-hidden="true">
+    <div class="header-inner">
+      <div class="article-title">MixedSignal.io</div>
+      <div class="header-actions">
+        <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">🌓</button>
       </div>
     </div>
   </header>
 
-  <!-- Dark/Light Mode Toggle -->
-  <div class="mode-toggle-container">
-    <label class="toggle-switch">
-      <input type="checkbox" id="modeToggle">
-      <span class="slider"></span>
-    </label>
-  </div>
-
-  <div class="blog-container">
-    <header class="blog-header">
-      <!-- <h1 class="blog-title"><span class="main-title-blog">&nbsp;mixedsignal.io</span></h1>-->
-      <!-- <div class="blog-subtitle">
-        Research Notes and Letters
-      </div> -->
-      <!--<div class="blog-meta">
-        <div id="articleCount" aria-label="Total articles">0 articles</div>
-      </div><br> -->
-    </header>
-
-    <article class="blog-content">
-    <nav id="category-bar" aria-label="Categories"></nav>
-    <hr />
-      <!-- Articles List -->
-      <div class="articles-list">
-      
-        <table id="articles-table" aria-label="Articles" style="width:100%; border-collapse:collapse; border-spacing:0; margin:0; padding:0;">
-        <tbody><!-- rows injected by JS --></tbody>
-        </table>
-
+  <main id="article">
+    <br>
+    <nav class="article-links" aria-label="Articles">
+      <div class="series">SRAM Design</div>
+      <div class="series-items">
+        <a href="articles/sram-design/part-1.html">Part I — SRAM Architecture and Memory Cell</a>
+        <a href="articles/sram-design/part-2.html">Part II — Memory Cell Design: 6T, 8T, 10T</a>
+        <a href="articles/sram-design/part-3.html">Part III — Read Path</a>
+        <a href="articles/sram-design/part-4.html">Part IV — Write Path</a>
+        <a href="articles/sram-design/part-5.html">Part V — Robust Memory Design and NanoScale Design Notes</a>
+        <a href="articles/sram-design/part-6.html">Part VI — Layout Notes</a>
+        <a href="articles/sram-design/part-7.html">Part VII — Parasitic Extraction, Simulation and GDS-II</a>
       </div>
-
-    </article>
+    </nav>
+  </main>
+  <footer class="sponsors-footer" aria-label="Sponsors">
+  <div class="sponsors-inner">
+    <div class="sponsors-heading"></div>
+    <div class="sponsor-logos">
+      <a href="#" target="_blank" rel="noopener" aria-label="Sponsor 1: Hackframe Research">
+        <img src="assets/images/hackframe_research.svg" alt="Hackframe Research">
+      </a>
+    </div><hr class="hr-short" aria-hidden="true">
+    <!-- <div>By <a href="https://amitabh.ch" target="_blank">Amitabh Yadav</a> / October 2025</div> -->
   </div>
+</footer> 
 
-  <!-- Footer -->
-  <!--<footer class="footer">
-    <p>&copy; 20<span id="currentYear"></span> mixedsignal.io</p>
-  </footer> -->
-  <!-- <div class="fixed-footer">
-    <div class="left-links">
-     
-    </div>
-    <div class="right-copy" style="padding-left: 5px;">
-    &#169; 20<span id="currentYear"></span> Mixed Signal Blog
-    </div>
-  </div> -->
 
-  <script src="articles-list.js"></script> 
-  <script src="assets/js/list-by-category.js" defer></script> 
+  <!-- Make the theme toggle visible immediately on mobile/tablet (no scroll needed) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const sh = document.getElementById('sticky-header');
+      if (sh) { sh.classList.add('visible'); sh.setAttribute('aria-hidden', 'false'); }
+    });
+  </script>
 
-  <!-- Go to Top Button -->
-  <button class="go-to-top" id="goToTop" aria-label="Go to top"></button>
-
-  <script src="assets/js/blog-style.js" defer></script>
-  <!-- <script>
-    // Set current year in footer
-    document.getElementById('currentYear').textContent = new Date().getFullYear().toString().slice(-2);
-  </script> -->
 </body>
 </html>
+
+<!-- TEMPLATE STUFF -->
+<!-- <main id="article"> --> 
+    <!-- Text brand (replaces logo) --><br>
+    <!-- <h1 class="brand-title">Mixed-Signal</h1> -->
+    <!--<p class="brand-subtitle">Mixed-Signal Circuit Design Notes</p> -->
+<!--    <p class="brand-subtitle">This is a collection of long-form online articles on practical design for efficient computing. Each piece is written with an implementation mindset — covering schematics, timing and power budgets, layout trade-offs, bring-up notes, and measurement tips you can use in the lab or ship to production.</p><br>
+  -->
+<!--
+    <nav class="article-links" aria-label="Articles">
+      <a href="articles/template/">A Practical Survey of Compute-in-Memory for Edge AI</a>
+      <a href="articles/reading-analytics-pipeline/index.html">Building a Privacy-Aware Reading Analytics Pipeline</a>
+
+      <div class="series">Scaling Neuromorphic Systems for Everyday Intelligence — Series</div>
+      <div class="series-items">
+        <a href="articles/neuromorphic-everyday-intelligence/part-1.html">Part I — Background &amp; Motivation</a>
+        <a href="articles/neuromorphic-everyday-intelligence/part-2.html">Part II — Methods &amp; Compiler IR</a>
+        <a href="articles/neuromorphic-everyday-intelligence/part-3.html">Part III — Results &amp; Ablations</a>
+        <a href="articles/neuromorphic-everyday-intelligence/part-4.html">Part IV — Discussion &amp; Future Work</a>
+      </div>
+
+      <div class="series">BCI ASIC Notes — Series</div>
+      <div class="series-items">
+        <a href="articles/bci-asic-notes/arch.html">Architecture &amp; System Budgeting</a>
+        <a href="articles/bci-asic-notes/analog-front-end.html">Analog Front-End &amp; ADC Choices</a>
+        <a href="articles/bci-asic-notes/cim-backend.html">CIM Backend &amp; On-Chip Features</a>
+        <a href="articles/bci-asic-notes/verification.html">Verification, Bring-Up &amp; DFT</a>
+      </div>
+
+      <a href="articles/startup-notebook/index.html">Startup Notebook: Equity, Ops, and Tooling</a>
+    </nav>
+  </main> -->

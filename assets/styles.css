@@ -1,0 +1,425 @@
+:root {
+  --bg: #ffffff;
+  --fg: #111111;
+  --muted: #5b5b5b;
+  --accent: #0b57d0;
+  --border: #e2e2e2;
+  --code-bg: #f6f6f6;
+  --kbd-bg: #eee;
+  --shadow: 0 6px 24px rgba(0,0,0,0.08);
+  --highlight: #e9ecef;
+
+  /* UI sans used for ToC, H1/H2, and sticky title */
+  --ui-font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0f1115;
+  --fg: #e6e6e6;
+  --muted: #a8a8a8;
+  --accent: #7aa2ff;
+  --border: #242733;
+  --code-bg: #171a21;
+  --kbd-bg: #2a2f3a;
+  --shadow: 0 8px 28px rgba(0,0,0,0.35);
+  --highlight: #2a2a2a;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Times New Roman", Times, serif; /* default body & H3 font */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Centered article container */
+main#article {
+  max-width: 860px;
+  margin: 3rem auto;
+  padding: 0 1.25rem;
+}
+@media (max-width: 768px) {
+  main#article {
+    margin: 1.5rem auto;
+    max-width: none;
+  }
+}
+
+#article p {
+  text-align: justify;
+  text-justify: inter-word;   /* better word spacing on some UAs */
+  hyphens: auto;              /* allow soft hyphenation */
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+}
+
+/* Article logo (above H1, not sticky) */
+.article-logo {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  max-height: 50px;      /* tweak to taste */
+  margin: 0 0 1rem 0;    /* spacing below logo */
+}
+
+/* Default: show light, hide dark */
+.logo-dark { display: none; }
+
+/* When theme = dark (set by your toggle) */
+:root[data-theme="dark"] .logo-light { display: none; }
+:root[data-theme="dark"] .logo-dark  { display: block; }
+
+/* Before user picks a theme, honor system preference */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .logo-light { display: none; }
+  :root:not([data-theme]) .logo-dark  { display: block; }
+}
+/* Optional: smaller logo on print */
+@media print {
+  .article-logo { max-height: 60px; }
+}
+
+/* Headings */
+h1, h2, h3, h4 { margin: 1.25rem 0 0.75rem; line-height: 1.25; }
+
+/* Title + section headings use UI sans; subsections keep Times via body */
+h1 { font-size: 2.2rem; font-family: var(--ui-font); }
+h2 { font-size: 1.6rem; font-family: var(--ui-font); }
+h3 { font-size: 1.25rem; font-family: var(--ui-font); color: var(--muted); }
+
+p, li, figure, pre, table { margin: 0.95rem 0; }
+
+/* Images: no rounded corners */
+img { max-width: 100%; border-radius: 0; display: block; height: auto; }
+figure { margin: 1rem 0; }
+figcaption { font-size: 0.9rem; color: var(--muted); text-align: center; }
+
+/* Code blocks: no shadow, softer corners, language badge */
+pre {
+  position: relative;
+  background: var(--code-bg);
+  padding: 1rem 1rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;           /* reduced rounding */
+  overflow: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.95rem;
+  box-shadow: none;             /* removed shadow */
+}
+pre[data-lang]::before {
+  content: attr(data-lang);
+  position: absolute;
+  top: 6px; right: 10px;
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+/* Inline code and kbd */
+code, kbd {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.95em;
+}
+code:not(pre code) {
+  background: var(--code-bg);
+  padding: 0.1rem 0.3rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+kbd {
+  background: var(--kbd-bg);
+  padding: 0.08rem 0.35rem;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+}
+
+/* Citations */
+a.citation {
+  text-decoration: none;
+  color: var(--accent);
+  cursor: pointer;
+}
+a.citation:hover { text-decoration: underline; }
+
+/* References: show only [n] + text; no leading "1." from <ol> */
+#references-section ol {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+#references-section li {
+  margin: 0.5rem 0;
+  scroll-margin-top: 6rem; /* avoid hiding under sticky header */
+}
+#references-section .ref-label {
+  font-weight: normal;  /* [n] not bold */
+  margin-right: 0;      /* we add space via ::after */
+}
+#references-section .ref-label::after {
+  content: " ";
+}
+#references-section .ref-content {
+  display: inline;
+}
+
+/* Flash highlight when jumping to refs */
+.flash-highlight { animation: flash 1.8s ease-out 1; }
+@keyframes flash {
+  0%   { background: var(--highlight); }
+  100% { background: transparent; }
+}
+
+/* Sticky header (default styles; used for mobile/tablet) */
+#sticky-header {
+  position: fixed;
+  top: -70px; left: 0; right: 0;
+  height: 56px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: top 260ms ease, opacity 200ms ease;
+  opacity: 0;
+  z-index: 1000;
+}
+#sticky-header.visible { top: 0; opacity: 1; }
+#sticky-header .header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  height: 56px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+#sticky-header .article-title {
+  font-family: var(--ui-font);
+  font-weight: 600;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+#sticky-header .header-actions { display: flex; gap: .5rem; align-items: center; }
+#sticky-header button {
+  background: transparent; border: 1px solid var(--border);
+  border-radius: 10px; padding: .4rem .65rem; color: var(--fg); cursor: pointer;
+}
+#sticky-header button:hover { background: var(--code-bg); }
+
+/* ToC dropdown (compact, square, dividers, sans-serif, H2 only) */
+.toc-dropdown { position: relative; }
+.toc-menu {
+  position: absolute; right: 0; top: 110%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 0;                 /* square corners */
+  min-width: 260px;
+  max-height: 60vh;
+  overflow: auto;
+  padding: .25rem;                  /* compact padding */
+  box-shadow: var(--shadow);
+  display: none;
+  font-family: var(--ui-font);
+  font-size: 0.95rem;
+}
+.toc-menu.open { display: block; }
+.toc-menu a {
+  display: block;
+  padding: .35rem .5rem;            /* tighter spacing */
+  color: var(--fg);
+  text-decoration: none;
+  line-height: 1.25;
+  border-bottom: 1px solid var(--border); /* divider */
+}
+.toc-menu a:last-child { border-bottom: none; }
+.toc-menu a:hover { background: var(--code-bg); }
+.toc-level-2 { font-weight: 400; }
+.toc-level-3 { display: none; }     /* hide subheadings */
+
+/* Tooltip for refs */
+#ref-tooltip {
+  position: fixed;
+  max-width: 480px;
+  background: var(--bg);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: .6rem .7rem;
+  font-size: .95rem;
+  box-shadow: var(--shadow);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 120ms ease, transform 120ms ease;
+  z-index: 999;
+}
+#ref-tooltip.visible { opacity: 1; transform: translateY(0); }
+
+/* ---------- Mobile & Tablet (≤1024px) ----------
+   Keep sticky header; hide sticky title; center ToC button; theme on right */
+@media (max-width: 1024px) {
+  #sticky-header .header-inner { position: relative; }
+  #sticky-header .article-title { display: none; }
+
+  /* Center the ToC button in the header */
+  #sticky-header .toc-dropdown {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  #sticky-header .toc-dropdown .toc-menu {
+    left: 50%;
+    right: auto;                 /* stop right-aligning */
+    transform: translateX(-50%); /* center under button */
+    top: 110%;                   /* keep vertical offset */
+  }
+
+  /* Theme toggle pinned right */
+  #sticky-header #theme-toggle {
+    position: absolute;
+    right: 1rem;
+  }
+}
+
+/* ---------- Desktop (≥1025px) ----------
+   Hide the sticky bar and show ToC + theme toggle as a fixed row at top-right of the SCREEN */
+@media (min-width: 1025px) {
+  /* Keep header in DOM for JS, but make the bar itself invisible/non-interactive */
+  #sticky-header {
+    height: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    opacity: 1 !important;         /* allow children to remain visible if repositioned */
+    pointer-events: none !important;
+  }
+
+  /* Fixed tools panel (one line, top-right of screen) */
+  #sticky-header .header-actions {
+    position: fixed !important;
+    top: 16px;                      /* top-right corner */
+    right: 16px;
+    z-index: 1001;
+    display: flex;
+    flex-direction: row;            /* one line */
+    align-items: center;
+    gap: .5rem;
+    pointer-events: auto !important; /* interactive */
+    white-space: nowrap;            /* keep on one line */
+  }
+
+  /* Buttons as floating tools */
+  #sticky-header button {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: .45rem .7rem;
+    box-shadow: none;
+  }
+
+  /* Keep dropdown attached to the ToC button (opens downward) */
+  .toc-dropdown { position: relative; }
+  .toc-menu {
+    right: 0;
+    top: 110%;
+    max-height: 70vh;
+  }
+
+  /* Hide the (unused) sticky title on desktop */
+  #sticky-header .article-title { display: none !important; }
+}
+
+/* Print-friendly: no sticky tools, minimal ink, full width */
+@media print {
+  #sticky-header { display: none !important; }
+  body { background: #fff; color: #000; }
+  main#article {
+    margin: 0;
+    padding: 0;
+    max-width: none;
+  }
+  img, pre, figure, table { page-break-inside: avoid; break-inside: avoid; }
+  pre, code, kbd {
+    background: transparent !important;
+    border-color: #ccc !important;
+    box-shadow: none !important;
+  }
+  .toc-dropdown, #theme-toggle { display: none !important; }
+}
+
+/** LOGOS **/
+/* Brand row (logo + optional buttons, same line) */
+.article-brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 1rem 0;
+}
+
+/* Logo sizing (keeps your light/dark swap behavior) */
+.brand-logo { display: flex; align-items: center; gap: 0; }
+.article-logo {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  max-height: 60px; /* adjust as needed */
+}
+
+/* Optional buttons */
+.brand-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.mixed-signal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  padding: 5px 10px 5px 10px;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--fg);
+  text-decoration: none;
+}
+.btn-icon:hover { background: var(--code-bg); }
+.btn-icon svg { width: 20px; height: 20px; }
+
+/* Respect your light/dark logo swap */
+.logo-dark { display: none; }
+:root[data-theme="dark"] .logo-light { display: none; }
+:root[data-theme="dark"] .logo-dark  { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .logo-light { display: none; }
+  :root:not([data-theme]) .logo-dark  { display: block; }
+}
+
+/* Mobile: stack if space is tight */
+@media (max-width: 600px) {
+  .article-brand-row {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .brand-actions {
+    margin-left: auto;
+  }
+}
+
+/* Print: hide buttons; keep a smaller logo */
+@media print {
+  .brand-actions { display: none !important; }
+  .article-logo { max-height: 60px; }
+}
