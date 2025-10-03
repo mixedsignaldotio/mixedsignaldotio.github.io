@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>MOS Device Physics (Electronics Devices 1)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../../assets/styles.css" />
+  <script defer src="../../assets/script.js"></script>
+  <link rel="icon" type="image/x-icon" href="../../assets/images/favicon_xf_eye_fancy_2_maxsize.ico" sizes="any">
+  <!-- GOOGLE AD BEGIN -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  <!-- GOOGLE AD END -->
+  <!-- Google Font for brand title only -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet">
+  <!-- MathJax (v3) -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+
+  <!-- Sticky header (mobile/tablet active; desktop shows floating tools via CSS) -->
+  <header id="sticky-header" aria-hidden="true">
+    <div class="header-inner">
+      <div class="article-title">MOS Device Physics</div>
+      <div class="header-actions">
+        <div class="toc-dropdown">
+          <button id="toc-button" aria-haspopup="true" aria-expanded="false">Navigation ▾</button>
+          <nav id="toc-menu" class="toc-menu" aria-label="Table of contents"></nav>
+        </div>
+        <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ARTICLE CONTENT ONLY -->
+  <main id="article">
+    <!--
+    <img class="article-logo logo-light" src="../../assets/images/hackframe_header_light.svg" alt="Hackframe logo (light)" />
+    <img class="article-logo logo-dark"  src="../../assets/images/hackframe_header_dark.svg"  alt="Hackframe logo (dark)" /> 
+    -->
+    <h1 id="article-title">MOS Device Physics</h1><br>
+    The objective of this article is to develop a circuit model for the MOSFET (Metal-Oxide Semiconductor Field Effect Transistor) by formulating its operation. 
+    We discuss the structure of MOS transistor and derive the IV characteristics. Next, we disucss the second-order effects such as <span class="seriftext">body effect</span>, 
+    <span class="seriftext">channel-length modulation</span>, and <span class="seriftext">subthreshold conduction</span>. Following this, we identify the 
+    <span class="seriftext">parasitic capacitances</span> of MOSFET, derive the <span class="seriftext">small-signal model</span>, and present the SPICE model.
+    <section>
+      <h2>MOSFET as a Switch</h2>
+      <p>
+        Shown in figure 1 is the symbol of an <span class="seriftext">n-</span>type MOSFET and a <span class="seriftext">p-</span>type MOSFET. 
+        It has 3 terminals: Gate (G), Source (S) and Drain (D). 
+        The latter two are interchangable because the device is symmetric. The arrow indicates the direction of current flow. 
+        When the MOSFET is operating as a switch, the transistor "connects" or "disconnects" the Source to the Drain depending on the gate voltage ($V_{G}$).
+      </p>
+      <figure class="centeredimg">
+        <img src="images/fig1_mos_symbols.png" alt="MOS Symbol" class="figure-img" style="width: 60%; height: auto; margin-bottom: 5px;">
+        <figcaption>Figure 1: Simple View of MOS transistor.</figcaption>
+      </figure>
+    </section>
+    <strong>Credits:</strong><br>Large parts of the article is derived from B. Razavi's "Design of analog CMOS integrated circuits" book [razavi2017cmos].
+    <!-- References (auto-generated, numbers & text) -->
+    <section id="references-section">
+      <h2>References</h2>
+      <ol id="references"></ol>
+    </section>
+
+    <!-- Reference catalog for tooltips + generation -->
+    <template id="ref-catalog">
+      <li data-key="razavi2017cmos">Razavi, B. (2017). Design of analog CMOS integrated circuits (2nd ed.). New York, NY: <i>McGraw-Hill Education</i>.</li>
+      <li data-key="horowitz2014">Horowitz, M. (2014). 1.1 Computing’s energy problem (and what we can do about it). <i>ISSCC</i>.</li>
+    </template>
+
+    <!-- Footer -->
+    <footer id="site-footer" style="margin-top:2rem; padding-top:1rem; border-top:1px solid var(--border); font-size:0.95rem;">
+      <p>
+        This work is licensed under a Creative Commons Attribution - Non Commercial 4.0 International License.<br> 
+        This means you're free to copy, share, and build on this book, but not to sell it in any part or form.
+      </p>
+    </footer>
+  </main>
+
+  <div id="ref-tooltip" role="tooltip" aria-hidden="true"></div>
+</body>
+</html>

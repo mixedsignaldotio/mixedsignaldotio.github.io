@@ -94,10 +94,20 @@ h3 { font-size: 1.25rem; font-family: var(--ui-font); color: var(--muted); }
 
 p, li, figure, pre, table { margin: 0.95rem 0; }
 
+.seriftext {
+  font-family: "Times New Roman", serif;
+  font-style: italic;
+  font-size: 1.15rem;
+}
 /* Images: no rounded corners */
 img { max-width: 100%; border-radius: 0; display: block; height: auto; }
 figure { margin: 1rem 0; }
-figcaption { font-size: 0.9rem; color: var(--muted); text-align: center; }
+figcaption { font-size: 0.9rem; color: var(--muted); text-align: center; font-family: 'Times New Roman', Times, serif; font-style: italic; font-size: 1rem;}
+figure.centeredimg {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers the image */
+}
 
 /* Code blocks: no shadow, softer corners, language badge */
 pre {
