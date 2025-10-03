@@ -30,7 +30,8 @@ html, body { margin: 0; padding: 0; }
 body {
   background: var(--bg);
   color: var(--fg);
-  font-family: "Times New Roman", Times, serif; /* default body & H3 font */
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  /* font-family: "Times New Roman", Times, serif; *//* default body & H3 font */
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -84,10 +85,10 @@ main#article {
 }
 
 /* Headings */
-h1, h2, h3, h4 { margin: 1.25rem 0 0.75rem; line-height: 1.25; }
+h1, h2, h3, h4 { margin: 1.25rem 0 0.75rem; line-height: 1.25;}
 
 /* Title + section headings use UI sans; subsections keep Times via body */
-h1 { font-size: 2.2rem; font-family: var(--ui-font); }
+h1 { font-size: 2.2rem; font-family: var(--ui-font); font-weight: 600; background: linear-gradient(to right, var(--bg), var(--bg), var(--accent)); color: var(--fg); padding: 5px 0px 5px 5px;}
 h2 { font-size: 1.6rem; font-family: var(--ui-font); }
 h3 { font-size: 1.25rem; font-family: var(--ui-font); color: var(--muted); }
 
@@ -212,7 +213,7 @@ a.citation:hover { text-decoration: underline; }
   position: absolute; right: 0; top: 110%;
   background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 0;                 /* square corners */
+  border-radius: 10px;                 /* square corners */
   min-width: 260px;
   max-height: 60vh;
   overflow: auto;

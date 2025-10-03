@@ -39,7 +39,7 @@
       color: inherit;
       padding: .5rem 0;
       border-bottom: 1px solid var(--border);
-      /*font-family: "Expletus Sans", var(--ui-font), system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;*/
+      font-family: var(--ui-font), system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     }
     .article-links a:last-child { border-bottom: none; }
     .article-links a:hover { background: var(--code-bg); }
@@ -178,7 +178,8 @@ a:focus-visible {
   </header>
 
   <main id="article">
-    <br>
+    <img class="article-logo logo-light" src="assets/images/mixedsignal_light.svg" alt="Hackframe logo (light)" />
+    <img class="article-logo logo-dark"  src="assets/images/mixedsignal_dark.svg"  alt="Hackframe logo (dark)" /> 
     <nav class="article-links" aria-label="Articles">
       <div class="series">SRAM Design</div>
       <div class="series-items">
@@ -194,11 +195,11 @@ a:focus-visible {
   </main>
   <footer class="sponsors-footer" aria-label="Sponsors">
   <div class="sponsors-inner">
-    <div class="sponsors-heading">Sponsors</div>
+    <div class="sponsors-heading"></div>
     <div class="sponsor-logos">
-      <a href="" target="_blank" rel="noopener" aria-label="Sponsor 1: Hackframe Research">
+      <!--<a href="" target="_blank" rel="noopener" aria-label="Sponsor 1: Hackframe Research">
         <img src="assets/images/hackframe_research.png" alt="Hackframe Research">
-      </a>
+      </a> -->
     </div><!--<hr class="hr-short" aria-hidden="true">-->
     <!-- <div>By <a href="https://amitabh.ch" target="_blank">Amitabh Yadav</a> / October 2025</div> -->
   </div>
