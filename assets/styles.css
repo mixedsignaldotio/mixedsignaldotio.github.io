@@ -343,7 +343,12 @@ a.citation:hover { text-decoration: underline; }
 /* Print-friendly: no sticky tools, minimal ink, full width */
 @media print {
   #sticky-header { display: none !important; }
-  body { background: #fff; color: #000; }
+  body { background: #fff; color: #000; font-size: 10pt;}
+  .seriftext {font-size: 10pt;}
+  figcaption {font-size: 10pt;}
+  h1 {font-size: 20pt;} 
+  h2 {font-size: 14pt;} 
+  h3 {font-size: 12pt;}
   main#article {
     margin: 0;
     padding: 0;

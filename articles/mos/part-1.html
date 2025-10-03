@@ -62,6 +62,29 @@
         <img src="images/fig1_mos_symbols.png" alt="MOS Symbol" class="figure-img" style="width: 60%; height: auto; margin-bottom: 5px;">
         <figcaption>Figure 1: Simple View of MOS transistor.</figcaption>
       </figure>
+      To aid circuit design, we need to look into the structure and the physics of the transistor. Questions like, For what value of $V_{G}$ does the device "turn on"; in other words, what is the "threshold voltage"? What is the resistance between S and D when the transistor is on (or off)? How does this resistance depend on the terminal voltages? Can we always model this resistance as a simple linear resistor? What limits the speed of the transistor? etc.
+      <h3>MOSFET Structure</h3>
+      Shown in figure 2 is the structure of an NMOS device. It is fabricated in p-substrate. Source and Drain are heavily doped n regions ($n^{+}$). A heavily doped (conductive) piece of <span class="seriftext">polysilicon</span> (or Metal) is used for the gate terminal. A very thin ($t_{ox}$) layer of insulating silicon dioxide ($SiO_{2}$) is sandwiched between the gate and the substrate. The useful action of the device occurs in the substrate region under the gate oxide, called "intrinsic part".
+      <br>MOS Device is symmetric. Still, one terminal is called Source and the other is called Drain. This is because Source is the terminal that provides the charge carriers (electrons in case of NMOS device and holes in case of PMOS device), and Drain the terminal that collects them.
+      <br>We have introducted S, D and G terminals, but in reality MOSFET is a <span class="seriftext">four-terminal</span> device. The fourth terminal is the <span class="seriftext">bulk</span> or the <span class="seriftext">body</span> terminal. In typical MOS operation, the S/D junctions must be reverse-biased, so for most cases, in NMOS (PMOS) the body is connected to the most negative (positive) supply. The physical connection to the body on the device is done through an ohmic $p^{+}$ region (Figure 2).
+      <figure class="centeredimg">
+        <img src="images/mos_structure.png" alt="MOS Structure" class="figure-img" style="margin-bottom: 5px;">
+        <figcaption>Figure 2: Structure of a MOS Device.</figcaption>
+      </figure>
+      In practice, both PMOS and NMOS are placed in a local substrate, called a "well". Today, PMOS is fabricated in $n-$well and this $n-$well is connected to the most positive supply in the system so that the PMOS remains reverse-biased under all conditions (Figure 2, bottom-right).
+      <br>
+      <h3>MOSFET Symbols</h3>
+      <p> MOSFET circuit symbols are shown in figure 3. Note that the Source of PMOS device is positioned at the top here to indicate that it has higher potential than its Gate. Since in most circuits, the bulk terminals of the NMOS and PMOS are tied to Ground and $V_{DD}$, respectively, we often omit these in circuit drawings. (a) and (b) are commonly used in Analog design whereas (c) often occurs in Digital designs.
+      </p>
+      <figure class="centeredimg">
+        <img src="images/fig1a_mos_symbols.png" alt="MOS Symbol" class="figure-img" style="width: 60%; height: auto; margin-bottom: 5px;">
+        <figcaption>Figure 3: MOSFET Symbols.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>MOS I/V characteristics</h2>
+      <p></p>
     </section>
     <strong>Credits:</strong><br>Large parts of the article is derived from B. Razavi's "Design of analog CMOS integrated circuits" book [razavi2017cmos].
     <!-- References (auto-generated, numbers & text) -->
